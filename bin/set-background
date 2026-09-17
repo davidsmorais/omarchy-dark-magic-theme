@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+shrooms_dir="${SHROOMS_DIR:-$HOME/.config/ghostty/backgrounds/dark-magic}"
+state_dir="${XDG_STATE_HOME:-$HOME/.local/state}/ghostty"
+state_file="$state_dir/wallpaper-index"
+include_file="${GHOSTTY_WALLPAPER_CONF:-$HOME/.config/ghostty/wallpaper.conf}"
+lock_file="$state_dir/wallpaper.lock"
+
+usage() {
+  cat <<EOF
+Usage: set-background <shrooms1..shrooms5|next>
+Set Ghostty's background-image to a shrooms wallpaper and reload Ghostty.
+EOF
+}
+
+apply_image() {
+  local image="$1"
+  printf '# Written by ~/.config/ghostty/bin/set-background — do not edit by hand.\nbackground-image = %s\n' "$image" >"$include_file"
+  if pgrep -x ghostty >/dev/null 2>&1; then
+    killall -SIGUSR2 ghostty >/dev/null 2>&1 || true
+  fi
+}
+
+pick="${1:-}"
+if [[ -z "$pick" ]]; then
+  usage >&2
+  exit 1
+fi
+
+mkdir -p "$state_dir"
+exec 9>"$lock_file"
+flock 9
+
+case "$pick" in
+  next)
+    idx=1
+    if [[ -f "$state_file" ]]; then
+      idx="$(<"$state_file")"
+    fi
+    if [[ ! "$idx" =~ ^[1-5]$ ]]; then
+      idx=1
+    fi
+    image="$shrooms_dir/shrooms${idx}.png"
+    if [[ ! -f "$image" ]]; then
+      echo "missing background image: $image" >&2
+      exit 1
+    fi
+    apply_image "$image"
+    echo $((idx % 5 + 1)) >"$state_file"
+    ;;
+  shrooms[1-5])
+    image="$shrooms_dir/${pick}.png"
+    if [[ ! -f "$image" ]]; then
+      echo "missing background image: $image" >&2
+      exit 1
+    fi
+    apply_image "$image"
+    echo $(( ${pick#shrooms} % 5 + 1 )) >"$state_file"
+    ;;
+  *)
+    usage >&2
+    exit 1
+    ;;
+esac
