@@ -1,0 +1,179 @@
+/**
+ * @name system24 | Dark Magic Theme
+ * @description A tui-style Discord theme for Omarchy Hyprland by David Morais.
+ * @author refact0r
+ * @version 2.0.0
+ * @invite nz87hXyvcy
+ * @website https://github.com/refact0r/system24
+ * @source https://github.com/refact0r/system24/blob/master/theme/system24.theme.css
+*/
+
+/* import theme modules */
+@import url("https://refact0r.github.io/system24/build/system24.css");
+
+body {
+    /* font, change to '' for default discord font */
+    --font: "DM Mono";
+    --code-font: "DM Mono";
+    font-weight: 300;
+    letter-spacing: -0.05ch;
+
+    /* sizes */
+    --gap: 12px;
+    --divider-thickness: 4px;
+    --border-thickness: 2px;
+    --border-hover-transition: 0.2s ease;
+
+    /* animation/transition options */
+    --animations: on;
+    --list-item-transition: 0.2s ease;
+    --dms-icon-svg-transition: 0.4s ease;
+
+    /* top bar options */
+    --top-bar-height: var(--gap);
+    --top-bar-button-position: titlebar;
+    --top-bar-title-position: off;
+    --subtle-top-bar-title: off;
+
+    /* window controls */
+    --custom-window-controls: off;
+    --window-control-size: 14px;
+
+    /* dms button options */
+    --custom-dms-icon: off;
+    --dms-icon-svg-url: url("");
+    --dms-icon-svg-size: 90%;
+    --dms-icon-color-before: var(--icon-secondary);
+    --dms-icon-color-after: var(--white);
+    --custom-dms-background: off;
+    --dms-background-image-url: url("");
+    --dms-background-image-size: cover;
+    --dms-background-color: linear-gradient(
+        70deg,
+        var(--blue-2),
+        var(--purple-2),
+        var(--red-2)
+    );
+
+    /* background image options */
+    --background-image: off;
+    --background-image-url: url("");
+
+    /* transparency/blur options */
+    --transparency-tweaks: off;
+    --remove-bg-layer: off;
+    --panel-blur: off;
+    --blur-amount: 12px;
+    --bg-floating: var(--bg-3);
+
+    /* other options */
+    --small-user-panel: on;
+
+    /* unrounding options */
+    --unrounding: on;
+
+    /* styling options */
+    --custom-spotify-bar: on;
+    --ascii-titles: on;
+    --ascii-loader: system24;
+
+    /* panel labels */
+    --panel-labels: on;
+    --label-color: var(--text-muted);
+    --label-font-weight: 500;
+}
+
+/* color options */
+:root {
+    --colors: on;
+
+    /* text colors */
+    --text-0: var(--bg-4);
+    --text-1: #e8f0ff;
+    --text-2: #66eeaa;
+    --text-3: #bbccee;
+    --text-4: #6bc7f5;
+    --text-5: #6b6b89;
+
+    /* background and dark colors */
+    --bg-1: #030305;
+    --bg-2: #07070f;
+    --bg-3: #0b0b14;
+    --bg-4: #0f0f17;
+    --hover: rgba(102, 238, 170, 0.1);
+    --active: rgba(102, 238, 170, 0.8);
+    --active-2: rgba(107, 199, 245, 1);
+    --message-hover: var(--hover);
+
+    /* accent colors */
+    --accent-1: var(--blue-1);
+    --accent-2: var(--blue-2);
+    --accent-3: var(--blue-3);
+    --accent-4: var(--blue-4);
+    --accent-5: var(--blue-5);
+    --accent-new: var(--red-2);
+    --mention: linear-gradient(
+        to right,
+        color-mix(in hsl, var(--accent-2), transparent 90%) 40%,
+        transparent
+    );
+    --mention-hover: linear-gradient(
+        to right,
+        color-mix(in hsl, var(--accent-2), transparent 95%) 40%,
+        transparent
+    );
+    --reply: linear-gradient(
+        to right,
+        color-mix(in hsl, var(--text-3), transparent 90%) 40%,
+        transparent
+    );
+    --reply-hover: linear-gradient(
+        to right,
+        color-mix(in hsl, var(--text-3), transparent 95%) 40%,
+        transparent
+    );
+
+    /* status indicator colors */
+    --online: var(--green-2);
+    --dnd: var(--red-2);
+    --idle: var(--yellow-2);
+    --streaming: var(--purple-2);
+    --offline: var(--text-5);
+
+    /* border colors */
+    --border-light: var(--hover);
+    --border: var(--active);
+    --border-hover: var(--accent-2);
+    --button-border: rgba(255, 255, 255, 0.1);
+
+    /* base colors */
+    --red-1: #ff5277;
+    --red-2: #ff385e;
+    --red-3: #bb324c;
+    --red-4: #99243b;
+    --red-5: #731729;
+
+    --green-1: #00ffab;
+    --green-2: #b4f09e;
+    --green-3: #8fd476;
+    --green-4: #6ab850;
+    --green-5: #47992c;
+
+    --blue-1: #52f3f3;
+    --blue-2: #66eeaa;
+    --blue-3: #38daff;
+    --blue-4: #6bc7f5;
+    --blue-5: #4ea8d6;
+
+    --yellow-1: #ffd31b;
+    --yellow-2: #fbde66;
+    --yellow-3: #e0c24a;
+    --yellow-4: #c4a731;
+    --yellow-5: #a88c1b;
+
+    --purple-1: #db6797;
+    --purple-2: #cfa3f5;
+    --purple-3: #b685e0;
+    --purple-4: #9d68cc;
+    --purple-5: #834db8;
+}
