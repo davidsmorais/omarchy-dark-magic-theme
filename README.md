@@ -8,6 +8,16 @@ A dark Omarchy theme with mint accent (#66eeaa) and blue secondary (#6bc7f5).
 
 ## Installation
 
+Install directly from this repo:
+
+```bash
+omarchy theme install https://github.com/davidsmorais/omarchy-dark-magic-theme
+```
+
+Or use the Omarchy menu: `Super + Space` → `Install > Style > Theme`, then paste the repo URL.
+
+Once installed, activate it with:
+
 ```bash
 omarchy theme set "Dark Magic"
 ```
