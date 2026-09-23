@@ -4,7 +4,7 @@ A dark Omarchy theme with mint accent (#66eeaa) and blue secondary (#6bc7f5).
 
 ## Preview
 
-![Dark Magic](preview.png)
+![Dark Magic](preview2.png)
 ![Dark Magic Locked](preview-unlock.png)
 
 ## Installation
